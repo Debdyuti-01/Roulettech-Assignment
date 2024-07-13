@@ -31,35 +31,35 @@
 - Secure Data Handling
 
 ## API Endpoints
-- **/api/register**: `POST` -  Register a new user
+- **/api/register** : `POST` -  Register a new user
 ```
 curl -X POST http://127.0.0.1:8000/api/register/ -H "Content-Type: application/json" -d '{"username":"testuser", "password":"testpassword", "password2":"testpassword", "email":"test@example.com"}'
 ```  
-- **/api/token/**: `GET` - Obtain a token
+- **/api/token/** : `GET` - Obtain a token
 ```
 curl -X POST http://127.0.0.1:8000/api/token/ -H "Content-Type: application/json" -d '{"email":"test@example.com", "username":"testuser", "password":"testpassword"}'
 ```
-- **api/**: `GET` - Get routes
+- **api/** : `GET` - Get routes
 ```
 curl http://127.0.0.1:8000/api/ -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
 ```
-- **api/notes/**: `GET` - Returns an array of notes
+- **api/notes/** : `GET` - Returns an array of notes
 ```
 curl http://127.0.0.1:8000/api/notes/ -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
 ```
-- **api/notes/<id>**: `GET` - Returns a single note object
+- **api/notes/<id>** : `GET` - Returns a single note object
 ```
 curl http://127.0.0.1:8000/api/notes/<id>/ -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
 ```
-- **api/notes/create/**: `POST` - Creates new note with data sent in post request
+- **api/notes/create/** : `POST` - Creates new note with data sent in post request
 ```
 curl -X POST http://127.0.0.1:8000/api/notes/create -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"body": {"medicine_name": "Aspirin", "route_of_administration": "Oral", "dosage_form": "Tablet", "dosage_unit_of_measure": "mg", "dosage_quantity_of_units_per_time": 500, "regimen_note": "Take with food", "periodic_interval": 24, "dosage_frequency": 1, "first_time_of_intake": "2023-07-13T08:00:00Z", "is_chronic_or_acute": "Acute", "stopped_by_datetime": "2023-07-20T08:00:00Z"}}'
 ```
-- **api/notes/<id>/update/**: `PUT` - Creates an existing note with data sent in post request
+- **api/notes/<id>/update/** : `PUT` - Creates an existing note with data sent in post request
 ```
 curl -X PUT http://127.0.0.1:8000/api/notes/<id>/update -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"body": {"medicine_name": "Updated Aspirin", "route_of_administration": "Oral", "dosage_form": "Tablet", "dosage_unit_of_measure": "mg", "dosage_quantity_of_units_per_time": 1000, "regimen_note": "Take with water", "periodic_interval": 12, "dosage_frequency": 2, "first_time_of_intake": "2023-07-13T08:00:00Z", "is_chronic_or_acute": "Chronic", "stopped_by_datetime": null}}'
 ```
-- **api/notes/id/delete/**: `DELETE` - Deletes and exiting note
+- **api/notes/<id>/delete/** : `DELETE` - Deletes and exiting note
 ```
 curl -X DELETE http://127.0.0.1:8000/api/notes/<id>/delete -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
 ```
