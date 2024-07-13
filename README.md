@@ -157,7 +157,7 @@ ALLOWED_HOSTS = ['3.17.66.119', 'localhost', '127.0.0.1']
 1. Go to the [CloudFront console](https://console.aws.amazon.com/cloudfront/home) and create a new distribution.
 2. Use your S3 bucket website endpoint as the origin.
 3. Update S3 Bucket Policy
-   ```
+```
    {
     "Version": "2012-10-17",
     "Statement": [
@@ -170,7 +170,7 @@ ALLOWED_HOSTS = ['3.17.66.119', 'localhost', '127.0.0.1']
         }
     ]
 }
-   ```
+```
 5. Configure caching behavior and other settings.
 6. Note the CloudFront distribution domain name (For me it is: `https://d3jxrb3r2dl9tk.cloudfront.net`)
 
