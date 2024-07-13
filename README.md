@@ -19,6 +19,15 @@
 - **Static Files**: Served by S3 and collected by Django.
 - **Optional**: CloudFront is used as a CDN for the frontend, and a custom VPC can be created for enhanced security.
 
+## API Endpoints
+- **/api/register**: Register a new user
+- **/api/login**: Login for an existing user
+- **/notes/**: `GET` - Returns an array of notes
+- **/notes/id**: `GET` - Returns a single note object
+- **/notes/create/**: `POST` - Creates new note with data sent in post request
+- **/notes/id/update/**: `PUT` - Creates an existing note with data sent in post request
+- **/notes/id/delete/**: `DELETE` - Deletes and exiting note
+
 ## Run the application locally
 
 ### 1. Run the Frontend
