@@ -7,9 +7,6 @@ import time2 from "../assets/time2.png";
 import stop from "../assets/stop.png";
 import moment from "moment";
 
-// import {Container,Row,Col} from "react-bootstrap";
-// import 'bootstrap/dist/css/bootstrap.css';
-
 // NoteItem is a destructured object passed to this component from parent component "NotesListPage" by the prop "NoteItem"
 const ListItem = ({NoteItem}) => {
   setInterval(function() {

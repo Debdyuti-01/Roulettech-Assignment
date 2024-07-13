@@ -19,6 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls')) # give the control to the the methods and data attributes inside the api.urls if the requested url is /api
+    path('api/', include('api.urls')) # gives the control to the the methods and data attributes inside the api.urls if the requested url is /api
    
 ]
