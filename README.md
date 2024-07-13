@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains a Medicine Reminder application with a React.js frontend and a Django backend. The project aims to help users manage their medication schedules effectively. This guide will walk you through the tech stack, architecture, and deployment process to AWS.
+'MedTrack Pal' is a Medication Reminder application with a React.js frontend and a Django backend. The project aims to help users manage their medication schedules effectively. This guide will talk about the tech stack, architecture, and deployment process to AWS.
 
 ## Tech Stack
 
@@ -27,23 +27,27 @@ This repository contains a Medicine Reminder application with a React.js fronten
 
 1. Go to the [AWS S3 console](https://s3.console.aws.amazon.com/s3/home).
 2. Click "Create bucket".
-3. Choose a unique name and select a region.
+3. Choose a unique name(I've given bucket_name as: medtrack-pal) and select a region.
 4. Enable "Static website hosting" in the bucket properties.
 
-#### b. Build Your React App
+#### b. Build the React App
 
-1. In your React project directory, run:
-2. This creates a `build` folder with optimized production files.
+1. In the React project directory, run:
+   ```
+   npm run build
+   ```
+3. The above command will create a `build` folder with optimized production files.
 
 #### c. Upload to S3
 
 1. Upload the contents of the `build` folder to your S3 bucket.
-2. Set appropriate permissions for public access.
+2. Make sure `index.html` is at the root of the bucket.
+3. Set appropriate permissions for public access.
 
 #### d. Configure Bucket for Static Website Hosting
 
 1. In bucket properties, set the index document to `index.html`.
-2. Note the bucket's website endpoint.
+2. Note the bucket's website endpoint (For MedTrack Pal: `http://medtrack-pal.s3-website.us-east-2.amazonaws.com/login`)
 
 ### 2. Deploy the Backend (Django) to AWS EC2
 
@@ -52,38 +56,62 @@ This repository contains a Medicine Reminder application with a React.js fronten
 1. Go to the [EC2 dashboard](https://console.aws.amazon.com/ec2/home) and click "Launch Instance".
 2. Choose an Amazon Linux 2 AMI.
 3. Select an instance type (t2.micro is fine for testing).
-4. Configure instance details, add storage, and configure security group (allow HTTP, HTTPS, and SSH).
+4. Configure instance details, add storage, and configure security group (allow HTTP, HTTPS, SSH and Custom TCP with Port 8000 ).
 5. Launch the instance and create/select a key pair.
 
 #### b. Connect to Your EC2 Instance
 
-1. Use SSH to connect:
-
+1. Used SSH to connect:
+   ```
+  sudo ssh -i ~/django.pem ec2-user@ec2-3-17-66-119.us-east-2.compute.amazonaws.com 
+  ```
 #### c. Set Up the Environment
 
 1. Update the system:
+```
+sudo yum update -y
+```
 2. Install Python:
+```
+sudo yum install python3 -y
+```
 3. Install pip:
+```
+sudo yum install python3-pip3 -y
+```
 4. Install virtual environment:
+```
+sudo pip3 install virtualenv
+```
 
-#### d. Deploy Your Django App
+#### d. Deploy the Django App
 
 1. Transfer your Django project to the EC2 instance (use SCP or git).
 2. Create and activate a virtual environment:
 3. Install dependencies:
+```
+ pip3 install -r requirements.txt
+```
 4. Collect static files:
-5. Run migrations:
+```
+python3 manage.py collectstatic
+```
 
-#### e. Set Up Gunicorn and Nginx
-
-1. Install Gunicorn:
-3. Configure Nginx to proxy requests to Gunicorn.
-4. Start Gunicorn and Nginx:
+5. Make migrations:
+```
+ python3 manage.py makemigrations
+ ```
+6. Run migrations:
+ python manage.py migrate
 
 ### 3. Ensure Public Accessibility
 
-1. Update your Django settings to allow your EC2 public DNS in `ALLOWED_HOSTS`.
-2. Configure your React app to use the EC2 public DNS for API calls.
+1. Update the Django settings to allow your EC2 public DNS in `ALLOWED_HOSTS` in settings.py file
+```
+ALLOWED_HOSTS = ['3.17.66.119', 'localhost', '127.0.0.1']
+
+```
+2. Configured my React app to use the EC2 public DNS for API calls.
 
 ### 4. Use AWS CloudFront for CDN (Optional)
 
@@ -102,4 +130,4 @@ This repository contains a Medicine Reminder application with a React.js fronten
 
 ## Conclusion
 
-Following these steps that helped me to successfully deploy my Medicine Reminder application with a React.js frontend and Django backend to AWS. This setup ensures scalability, security, and high availability. If you encounter any issues or need further assistance, feel free to open an issue on this repository.
+Following these steps that helped me to successfully deploy my MedTrack Pal:Medicine Reminder application with a React.js frontend and Django backend to AWS. This setup ensures scalability, security, and high availability. 
