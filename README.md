@@ -33,9 +33,9 @@
 #### b. Build the React App
 
 1. In the React project directory, run:
-   ```
-   npm run build
-   ```
+```
+npm run build
+```
 3. The above command will create a `build` folder with optimized production files.
 
 #### c. Upload to S3
@@ -62,9 +62,9 @@
 #### b. Connect to Your EC2 Instance
 
 1. Used SSH to connect:
-   ```
-  sudo ssh -i ~/django.pem ec2-user@ec2-3-17-66-119.us-east-2.compute.amazonaws.com 
-  ```
+```
+sudo ssh -i ~/django.pem ec2-user@ec2-3-17-66-119.us-east-2.compute.amazonaws.com 
+```
 #### c. Set Up the Environment
 
 1. Update the system:
@@ -96,20 +96,19 @@ sudo pip3 install virtualenv
 ```
 python3 manage.py collectstatic
 ```
-
 5. Make migrations:
 ```
  python3 manage.py makemigrations
- ```
+```
 6. Run migrations:
- python manage.py migrate
-
+```
+python manage.py migrate
+```
 ### 3. Ensure Public Accessibility
 
 1. Update the Django settings to allow your EC2 public DNS in `ALLOWED_HOSTS` in settings.py file
 ```
 ALLOWED_HOSTS = ['3.17.66.119', 'localhost', '127.0.0.1']
-
 ```
 2. Configured my React app to use the EC2 public DNS for API calls.
 
