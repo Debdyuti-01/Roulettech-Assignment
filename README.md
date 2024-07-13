@@ -36,7 +36,7 @@
 ```
 npm run build
 ```
-3. The above command will create a `build` folder with optimized production files.
+2. The above command will create a `build` folder with optimized production files.
 
 #### c. Upload to S3
 
