@@ -1,8 +1,8 @@
-# MedTrack Pal : Medication Reminder Application
+# MedTrack Pal : Medicine Reminder Application
 
 ## Overview
 
-`MedTrack Pal` is a Medication Reminder application with a React.js frontend and a Django backend. The project aims to help users manage their medication schedules effectively. This guide will talk about the tech stack, architecture, and deployment process to AWS.
+`MedTrack Pal` is a Medicine Reminder application with a React.js frontend and a Django backend. The project aims to help users manage their medication schedules effectively. This guide will talk about the tech stack, architecture, and deployment process to AWS.
 
 ## Tech Stack
 
