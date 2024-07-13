@@ -19,6 +19,22 @@
 - **Static Files**: Served by S3 and collected by Django.
 - **Optional**: CloudFront is used as a CDN for the frontend, and a custom VPC can be created for enhanced security.
 
+## Run the application locally
+
+### 1. Run the Frontend
+```
+cd react-js
+```
+```
+npm install
+```
+```
+npm start
+```
+### 2. Run the Backend 
+```
+python3 manage.py runserver
+```
 ## Deployment to AWS
 
 ### 1. Deploy the Frontend (React.js) to AWS S3
