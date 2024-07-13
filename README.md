@@ -68,6 +68,21 @@ npm run build
 1. Upload the contents of the `build` folder to your S3 bucket.
 2. Make sure `index.html` is at the root of the bucket.
 3. Set appropriate permissions for public access.
+4. Update the S3 Bucket Policy
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::medtrack-pal/*"
+        }
+    ]
+}
+```
 
 #### d. Configure Bucket for Static Website Hosting
 
@@ -141,8 +156,23 @@ ALLOWED_HOSTS = ['3.17.66.119', 'localhost', '127.0.0.1']
 
 1. Go to the [CloudFront console](https://console.aws.amazon.com/cloudfront/home) and create a new distribution.
 2. Use your S3 bucket website endpoint as the origin.
-3. Configure caching behavior and other settings.
-4. Note the CloudFront distribution domain name.
+3. Update S3 Bucket Policy
+   ```
+   {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::medtrack-pal/*"
+        }
+    ]
+}
+   ```
+5. Configure caching behavior and other settings.
+6. Note the CloudFront distribution domain name (For me it is: `https://d3jxrb3r2dl9tk.cloudfront.net`)
 
 ### 5. Create a Custom VPC with Private Subnet (Optional)
 
