@@ -102,4 +102,4 @@ This repository contains a Medicine Reminder application with a React.js fronten
 
 ## Conclusion
 
-Following these steps will help you successfully deploy your Medicine Reminder application with a React.js frontend and Django backend to AWS. This setup ensures scalability, security, and high availability. If you encounter any issues or need further assistance, feel free to open an issue on this repository.
+Following these steps that helped me to successfully deploy my Medicine Reminder application with a React.js frontend and Django backend to AWS. This setup ensures scalability, security, and high availability. If you encounter any issues or need further assistance, feel free to open an issue on this repository.
